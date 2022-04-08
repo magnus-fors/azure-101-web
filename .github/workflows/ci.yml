@@ -6,10 +6,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - name: Checkout source code
+      uses: actions/checkout@v2
+
+    - name: Setup nodejs 14.x
+      uses: actions/setup-node@v2
       with:
-        node-version: 14.x
-    - run: npm ci
-    - run: npm run build
+          node-version: 14.x
+
+    - name: Npm inmstall (ci)
+      run: npm ci
+
+    - name: Npm build
+      run: npm run build
+
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
