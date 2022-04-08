@@ -3,7 +3,7 @@ export interface Environment {
 }
 
 const prod: Environment = {
-  baseUrl: "https://functionapp-qprppmwsyty2i.azurewebsites.net",
+  baseUrl: "https://api.magnusfo.course.connect.axis.com",
 }
 
 export const environment: Environment = prod
